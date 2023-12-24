@@ -19,6 +19,7 @@ import BackGroundImage from './assets/bg_christmas.jpg';
 
 const App = () => {
   const [shuffledCards, setShuffledCards] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // const initialOrder = [0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11];
@@ -49,9 +50,29 @@ const App = () => {
       { id: 11, image: giftBox},
       // ... other cards
     ];
+
+    const loadImage = (src) => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = resolve;
+        img.onerror = reject;
+      });
+    };
+  
+    const loadAllImages = async () => {
+      const imagesToLoad = initialOrder.map((card) => card.image);
+      await Promise.all(imagesToLoad.map(loadImage));
+      setIsLoading(false);
+    };
+
     const shuffledOrder = shuffleArray(initialOrder);
     setShuffledCards(shuffledOrder);
+
+    loadAllImages();
+
   }, []);
+
 
   const shuffleArray = (array) => {
     const shuffledArray = array.slice();
@@ -64,6 +85,11 @@ const App = () => {
 
   return (
     <>
+          {isLoading ? (
+        <div className="loader">
+          <p>Loading...</p>
+        </div>
+      ) : (
       <div className="app">
         <div className="board p-2 bg-local h-screen w-screen bg-cover"  style={{ backgroundImage: `url(${BackGroundImage})` }}> 
           {/* Make sure to spread the array into individual values */}
@@ -79,6 +105,7 @@ const App = () => {
         </div>
         </div>
       </div>
+       )}
     </>
   );
   
