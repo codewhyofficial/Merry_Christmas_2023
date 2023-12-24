@@ -86,14 +86,15 @@ const App = () => {
   return (
     <>
           {isLoading ? (
-        <div className="loader">
-          <p>Loading...</p>
+        <div className="loader flex justify-center items-center text-white text-sm md:text-lg w-full h-12 bg-white-500 rounded tracking-wide">
+          {/* <p> Hold on Santa Gifts are coming !! </p> */}
+          <p className='bg-clip-text text-transparent bg-cyan-300 bg-gradient-to-br from-red-300 from-20% via-red-400 via-70% to-red-300 to-90% tracking-wide'>Merry Christmas ! <LetterTypingEffect word = "Hold on Santa Gifts are coming !!"/>....</p>
         </div>
       ) : (
       <div className="app">
         <div className="board p-2 bg-local h-screen w-screen bg-cover"  style={{ backgroundImage: `url(${BackGroundImage})` }}> 
           {/* Make sure to spread the array into individual values */}
-          <div class="text-base pt-2 text-4xl font-medium md:text-4xl duration-200 text-center pt-2">
+          <div class="text-base pt-2 text-4xl font-medium duration-200 text-center pt-2">
           {/* <LetterTypingEffect word= "Crafting Seamless Experience with Code & Design"/> */}
           <p className='bg-clip-text text-transparent bg-cyan-300 bg-gradient-to-br from-cyan-300 from-20% via-cyan-400 via-70% to-cyan-300 to-90% tracking-wide'><LetterTypingEffect word = "Merry Christmas"/>....</p>
         </div>
