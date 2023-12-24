@@ -81,7 +81,7 @@ const SmallCard = ({ shuffledCards }) => {
                             {/* Front side (text) */}
                             <div className={`front-side absolute inset-0 rounded-lg transform rotate-0 ${clickedCards.includes(index) ? 'hidden' : ''}`}>
                                 {/* <img src={gift1} alt="Gift" className="cover" /> */}
-                                <p>{card.id}</p>
+                                {/* <p>{card.id}</p> */}
                             </div>
 
                             {/* Back side (image) */}
