@@ -86,7 +86,7 @@ const App = () => {
   return (
     <>
           {isLoading ? (
-        <div className="loader flex justify-center items-center text-white text-sm md:text-lg w-full h-12 bg-white-500 rounded tracking-wide">
+        <div className="loader flex justify-center items-center text-white text-sm md:text-lg w-full h-12 bg-white-500 rounded tracking-wide bg-black h-screen w-screen">
           {/* <p> Hold on Santa Gifts are coming !! </p> */}
           <p className='bg-clip-text text-transparent bg-cyan-300 bg-gradient-to-br from-red-300 from-20% via-red-400 via-70% to-red-300 to-90% tracking-wide'>Merry Christmas ! <LetterTypingEffect word = "Hold on Santa Gifts are coming !!"/>....</p>
         </div>
